@@ -1,0 +1,4 @@
+1. Each part has its own make file.
+2. telToImage is based on the concept finite state machine.
+3. Their are two different way to test the code. The first is test the code itself to make sure that each part run well. The second way is "black box" test which will not care what happened in the code level. It can automatically compare the images generate by "telToImage" with a standard image and tell the difference between them.
+4. The "imageToTel" is used to convert an image to teletext code. The basic idea is to calculate the hash code of each "unit image" which generate by the corresponding Teltext code. When this program parse a image, the first step is to cut the big image into a group of small images and calculate the hash value of each small image and find the corresponding Teltext code.

@@ -1,0 +1,51 @@
+My testing strategy is tesing unit code without SDL in test.c,
+and test unit code in printtest.c.
+
+So please use make file to test them seperately.
+
+The test.c does't have any arguments.
+/*printtest need SDL_image*/
+The printtest.c need to arguments. argv[1] is a m7 file. argv[2] is a picture which is standard one. 
+The printtest.c will do the following things:
+
+1. generate a new graph by using argv[1]'s m7 file. 
+2. Get the pixel information from a surface. 
+3. Store this picture as test.BMP.
+4. Compare surface and BMP with the argv[2](which is a right, standard picture).
+(This comparsion may need SDL_image. I will compare them pixel by pixel)
+
+Actually, withing this printtest function, we can test any m7 file's picture with another picture.
+
+
+My test.c test some basic function like initialization, read file and decoder.
+I don't use any assert. I will sum the error of my function.
+The most difficult part is decorder.
+I just set some control code and compare the instruction set's instruction with the right one. 
+
+Beside, my strategy to seperate is a little different. My code allow you change background in seperate graphic model. Saying that 0x81 0x9d will not break the seperate graph model. I think this is allowed.
+
+Bug:
+1. I used 0xa0 instead of 0x91-0x97 to stop seperate model. It is wrong.
+2. In my original design changing background like 0x9c, 0x81 0x9d will not stop holding model. It might be wrong.
+3. In my printtest.c I found that my getpixel function can't get right RGB when it was used to BMP. This is not related to the first part.
+
+Strengths of the first part:
+1. I don't store the whole teltext code's instruction in a 2-d array. I use a structure to store them.
+I can save a lot of memory when the code is long. I think my method is more like processor. 
+2. I seperate my decoding part and excuting part. It is very very easy for me to debug.
+3. I don't use any array to store the colour information. I used bit manipulation. I aslo don't use array to draw graphs.
+
+Weakness of the first part:
+1. My code is not a real completed compiler, because I can't detect syntatic and semantic error. 
+
+Strengths of the test part:
+1. I test the print function. Using SDL_image and other functions to automatically read picture and compare them.
+
+
+
+
+
+
+
+
+
