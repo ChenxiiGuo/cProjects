@@ -34,3 +34,35 @@ Second, calculating the index or hash_value of each unit image.
 
 Finally, comparing this index with each instruction's index(which is already calculated) and get the index. 
 
+
+## Introduction of binarySearchTree
+
+### What it is used for?
+This one is used to show how to make a binary search tree and some applications of the binary search tree.
+
+### How to used it?
+You can compile bst, spl.c. In the furtherDevelop folder, you can use the make file to compile it.
+
+### Features of binarySearchTree
+
+#### Features of Basic part (bst.c)
+
+Firstly, a binary search tree(BST) has been built.
+
+Secondly, it support some basic methods.
+
+For example: The calculation of the depth of the tree; simple BST display (root(left subtree)(right subtree)); Inorder traversal and Simple reblancing.
+
+#### Features of further develop part 
+
+In the furtherDevelop folder, their are totally three different programs.
+
+The first one is prettier print. It is used to print the tree which could really show the structure of the tree.
+
+The second one is hash. It is used to show that hash table is muck quicker than BST(O(1) VS O(log(N)), but hash table needs more memory.
+
+The last one is about threaded binary tree which could save the memory.
+
+
+
+
